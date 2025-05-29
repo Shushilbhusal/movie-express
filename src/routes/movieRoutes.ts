@@ -9,76 +9,81 @@ import {
 } from "../controllers/movieController";
 
 const router = express.Router();
+router.get('/all', getAllMoviesByController);
+router.get("/:id", getMovieByIdController);
+router.post("/", createMovieByController);
+router.put("/:id", updateMovieByIdController);
+router.delete("/:id", deleteMovieByIdController);
 
-router.post(
-  "/",
-  (req: Request, res: Response, next: NextFunction) => {
-    const role = req.query.role;
-    if (role === "admin") {
-      next();
-    } else
-      next({
-        message: "You are not admin",
-        error: 403,
-      });
-  },
-  createMovieByController
-);
-router.get(
-  "/:id",
-  (req: Request, res: Response, next: NextFunction) => {
-    const role = req.query.role;
-    if (role === "admin") {
-      next();
-    } else
-      next({
-        message: "You are not admin",
-        error: 403,
-      });
-  },
-  getMovieByIdController
-);
-router.get(
-  "/",
-  (req: Request, res: Response, next: NextFunction) => {
-    const role = req.query.role;
-    if (role === "admin") {
-      next();
-    } else
-      next({
-        message: "You are not admin",
-        error: 403,
-      });
-  },
-  getAllMoviesByController
-);
-router.put(
-  "/:id",
-  (req: Request, res: Response, next: NextFunction) => {
-    const role = req.query.role;
-    if (role === "admin") {
-      next();
-    } else
-      next({
-        message: "You are not admin",
-        error: 403,
-      });
-  },
-  updateMovieByIdController
-);
-router.delete(
-  "/:id",
-  (req: Request, res: Response, next: NextFunction) => {
-    const role = req.query.role;
-    if (role === "admin") {
-      next();
-    } else
-      next({
-        message: "You are not admin",
-        error: 403,
-      });
-  },
-  deleteMovieByIdController
-);
+// router.post(
+//   "/",
+//   (req: Request, res: Response, next: NextFunction) => {
+//     const role = req.query.role;
+//     if (role === "admin") {
+//       next();
+//     } else
+//       next({
+//         message: "You are not admin",
+//         error: 403,
+//       });
+//   },
+//   createMovieByController
+// );
+// router.get(
+//   "/:id",
+//   (req: Request, res: Response, next: NextFunction) => {
+//     const role = req.query.role;
+//     if (role === "admin") {
+//       next();
+//     } else
+//       next({
+//         message: "You are not admin",
+//         error: 403,
+//       });
+//   },
+//   getMovieByIdController
+// );
+// router.get(
+//   "/",
+//   (req: Request, res: Response, next: NextFunction) => {
+//     const role = req.query.role;
+//     if (role === "admin") {
+//       next();
+//     } else
+//       next({
+//         message: "You are not admin",
+//         error: 403,
+//       });
+//   },
+//   getAllMoviesByController
+// );
+// router.put(
+//   "/:id",
+//   (req: Request, res: Response, next: NextFunction) => {
+//     const role = req.query.role;
+//     if (role === "admin") {
+//       next();
+//     } else
+//       next({
+//         message: "You are not admin",
+//         error: 403,
+//       });
+//   },
+//   updateMovieByIdController
+// );
+// router.delete(
+//   "/:id",
+//   (req: Request, res: Response, next: NextFunction) => {
+//     const role = req.query.role;
+//     if (role === "admin") {
+//       next();
+//     } else
+//       next({
+//         message: "You are not admin",
+//         error: 403,
+//       });
+//   },
+//   deleteMovieByIdController
+// );
 
 export default router;

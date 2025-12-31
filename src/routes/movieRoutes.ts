@@ -11,7 +11,7 @@ import {
 const router = express.Router();
 router.get('/all', getAllMoviesByController);
 router.get("/:id", getMovieByIdController);
-router.post("/", createMovieByController);
+router.post("/post", createMovieByController);
 router.put("/:id", updateMovieByIdController);
 router.delete("/:id", deleteMovieByIdController);
 
